@@ -11,6 +11,7 @@ export class LayoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    /* Número de valores */
     const numberPromise = new Promise((resolve, reject) => {
       resolve(5);
       resolve(15);
@@ -24,6 +25,12 @@ export class LayoutComponent implements OnInit {
     });
 
     numberObservables.subscribe(value => console.log(`Subscribe: ${value}`));
+
+    /* Momento de ejecución */
+    const promise = new Promise(() => console.log('Promise is called'));
+
+    const observable = new Observable(() => console.log('Observable is called'));
+    observable.subscribe();
   }
 
 }
